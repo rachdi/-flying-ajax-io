@@ -21,6 +21,7 @@
 
 		ajaxDone : function(response) {
 			var listPlaces = response.places;
+			console.log(listPlaces);
 			for (var i = 0; i < listPlaces.length; i++) {
 				$("ul").append("<li>" + listPlaces[i].nom + "</li>")
 
@@ -48,7 +49,16 @@
 
 		meteoDone : function(response) {
 			console.log(response);
-			// à reprendre par ici : on récupère un objet meteo mais il reste à le traiter
+			var weather = response.main;
+			console.log(weather);
+			$('#weather').append('<li>' + weather.temp + '</li>');
+			
+			var temp = weather.temp;
+			console.log(temp);
+
+			//affichage température en kelvin ok manque à convertir en degrés + affichage description
+
+
 		},
 
 		meteoFail : function() {
